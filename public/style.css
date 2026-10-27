@@ -12,77 +12,77 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 56px 24px;
+  padding: 60px 24px;
   -webkit-font-smoothing: antialiased;
 }
 
 .app-container {
   width: 100%;
-  max-width: 740px; /* Increased width for a bigger, more spacious presence */
+  max-width: 880px; /* Expanded for a larger, prominent layout */
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 32px;
 }
 
 /* Header */
 .app-header {
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .app-header h2 {
-  font-size: 28px;
+  font-size: 34px;
   font-weight: 800;
   color: #0f172a;
-  letter-spacing: -0.6px;
+  letter-spacing: -0.8px;
 }
 
 .app-header p {
-  font-size: 15px;
+  font-size: 17px;
   color: #64748b;
-  margin-top: 6px;
+  margin-top: 8px;
   font-weight: 500;
 }
 
 /* Modern Card Container */
 .card {
   background: #ffffff;
-  border-radius: 18px;
+  border-radius: 20px;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05), 0 2px 6px rgba(15, 23, 42, 0.02);
+  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.05), 0 2px 8px rgba(15, 23, 42, 0.02);
   overflow: hidden;
 }
 
 /* Form Section */
 .form-card {
-  padding: 32px 36px;
+  padding: 38px 44px;
 }
 
 #item-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 .form-row {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .form-row label {
-  width: 70px;
-  font-size: 15px;
+  width: 80px;
+  font-size: 17px;
   font-weight: 600;
   color: #475569;
 }
 
 .form-row input {
   flex: 1;
-  padding: 12px 18px;
-  font-size: 15px;
+  padding: 15px 22px;
+  font-size: 17px;
   border: 1.5px solid #cbd5e1;
-  border-radius: 10px;
+  border-radius: 12px;
   background-color: #f8fafc;
   color: #0f172a;
   outline: none;
@@ -92,22 +92,22 @@ body {
 .form-row input:focus {
   background-color: #ffffff;
   border-color: #2563eb;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
 }
 
 .form-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
-  margin-top: 6px;
+  gap: 14px;
+  margin-top: 8px;
 }
 
 /* Primary and Cancel Buttons */
 .btn {
-  padding: 12px 26px;
-  font-size: 15px;
+  padding: 14px 32px;
+  font-size: 16px;
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   border: none;
   outline: none;
@@ -117,7 +117,7 @@ body {
 .btn-primary {
   background-color: #2563eb;
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
 }
 
 .btn-primary:hover {
@@ -152,18 +152,18 @@ thead tr {
 }
 
 th {
-  padding: 16px 24px;
-  font-size: 13px;
+  padding: 20px 28px;
+  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.8px;
   color: #64748b;
   text-align: left;
 }
 
 td {
-  padding: 18px 24px;
-  font-size: 15px;
+  padding: 22px 28px;
+  font-size: 17px;
   color: #1e293b;
   border-bottom: 1px solid #f1f5f9;
   vertical-align: middle;
@@ -184,33 +184,33 @@ tbody tr:hover {
 .col-id {
   color: #94a3b8;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .col-name {
   font-weight: 600;
   color: #0f172a;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .col-price {
   font-weight: 600;
   color: #334155;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 /* Action Buttons inside Table */
 .action-group {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .btn-sm {
-  padding: 7px 16px;
-  font-size: 13px;
+  padding: 9px 20px;
+  font-size: 15px;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 9px;
   cursor: pointer;
   border: 1px solid transparent;
   transition: all 0.15s ease;
@@ -241,6 +241,6 @@ tbody tr:hover {
 .empty-state {
   text-align: center;
   color: #94a3b8;
-  padding: 40px 20px;
-  font-size: 15px;
+  padding: 48px 24px;
+  font-size: 17px;
 }
