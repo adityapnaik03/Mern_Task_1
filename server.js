@@ -10,12 +10,22 @@ app.use(express.json());
 // Serve static frontend files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// In-memory data store seeded with the wireframe items
+// In-memory data store seeded with the wireframe items (starting at 1)
 let items = [
   { id: 1, name: 'Book', price: 250 },
   { id: 2, name: 'Pen', price: 25 }
 ];
-let nextId = 3;
+
+// Helper: Generate the lowest available ID starting from 1
+function getNextId() {
+  if (items.length === 0) return 1;
+  const existingIds = new Set(items.map(item => item.id));
+  let id = 1;
+  while (existingIds.has(id)) {
+    id++;
+  }
+  return id;
+}
 
 // 1. GET /items - Retrieve all items
 app.get('/items', (req, res) => {
@@ -31,7 +41,7 @@ app.post('/items', (req, res) => {
   }
 
   const newItem = {
-    id: nextId++,
+    id: getNextId(),
     name: name.trim(),
     price: Number(price)
   };
@@ -77,6 +87,15 @@ app.delete('/items/:id', (req, res) => {
     message: 'Item deleted successfully.',
     item: deletedItem
   });
+});
+
+// Optional reset endpoint to restore initial items starting from 1
+app.post('/reset', (req, res) => {
+  items = [
+    { id: 1, name: 'Book', price: 250 },
+    { id: 2, name: 'Pen', price: 25 }
+  ];
+  res.status(200).json({ message: 'Reset successful', items });
 });
 
 // Start the server
