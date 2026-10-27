@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD Operations - Item Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Header -->
+    <div class="app-header">
+      <h2>Item Management</h2>
+      <p>Simple CRUD Operations with Express & Vanilla JS</p>
+    </div>
+
+    <!-- Input Form Card -->
+    <div class="card form-card">
+      <form id="item-form">
+        <input type="hidden" id="item-id">
+
+        <div class="form-row">
+          <label for="item-name">Name</label>
+          <input 
+            type="text" 
+            id="item-name" 
+            placeholder="Enter name" 
+            required 
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="form-row">
+          <label for="item-price">Price</label>
+          <input 
+            type="number" 
+            id="item-price" 
+            placeholder="Enter price" 
+            step="any" 
+            required
+          >
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="cancel-btn" class="btn btn-cancel" style="display: none;">Cancel</button>
+          <button type="submit" id="submit-btn" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Data Table Card -->
+    <div class="card table-card">
+      <table id="items-table">
+        <thead>
+          <tr>
+            <th style="width: 70px;">ID</th>
+            <th>Name</th>
+            <th style="width: 120px;">Price</th>
+            <th style="width: 160px; text-align: center;">Action</th>
+          </tr>
+        </thead>
+        <tbody id="items-tbody">
+          <!-- Rows will be injected here dynamically -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
