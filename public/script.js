@@ -25,7 +25,7 @@ async function fetchItems() {
   }
 }
 
-// Render items into table
+// Render items with continuous Serial Numbers
 function renderTable(items) {
   itemsTbody.innerHTML = '';
 
@@ -34,11 +34,12 @@ function renderTable(items) {
     return;
   }
 
-  items.forEach(item => {
+  items.forEach((item, index) => {
+    const serialNo = index + 1; // Strict continuous Serial No. (1, 2, 3...)
     const row = document.createElement('tr');
 
     row.innerHTML = `
-      <td class="col-id">${item.id}</td>
+      <td class="col-id">${serialNo}</td>
       <td class="col-name">${escapeHtml(item.name)}</td>
       <td class="col-price">${item.price}</td>
       <td style="text-align: center;">
@@ -46,7 +47,7 @@ function renderTable(items) {
           <button class="btn-sm btn-edit" onclick="handleEdit(${item.id}, '${escapeQuotes(item.name)}', ${item.price})">
             Edit
           </button>
-          <button class="btn-sm btn-delete" onclick="handleDelete(${item.id})">
+          <button class="btn-sm btn-delete" onclick="handleDelete(${item.id}, '${escapeQuotes(item.name)}')">
             Delete
           </button>
         </div>
@@ -105,7 +106,7 @@ itemForm.addEventListener('submit', async (e) => {
   }
 });
 
-// 3. EDIT: Populate form with row values
+// 3. EDIT: Populate form with existing data
 window.handleEdit = function(id, name, price) {
   isEditing = true;
   itemIdInput.value = id;
@@ -117,9 +118,9 @@ window.handleEdit = function(id, name, price) {
   itemNameInput.focus();
 };
 
-// 4. DELETE: Send DELETE /items/:id
-window.handleDelete = async function(id) {
-  const confirmed = confirm(`Are you sure you want to delete item #${id}?`);
+// 4. DELETE: Send DELETE /items/:id and re-order
+window.handleDelete = async function(id, name) {
+  const confirmed = confirm(`Are you sure you want to delete "${name}"?`);
   if (!confirmed) return;
 
   try {
@@ -148,7 +149,7 @@ cancelBtn.addEventListener('click', () => {
   resetForm();
 });
 
-// Reset form to default
+// Reset form
 function resetForm() {
   itemForm.reset();
   itemIdInput.value = '';
